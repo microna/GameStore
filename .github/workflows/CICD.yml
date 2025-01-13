@@ -24,7 +24,7 @@ jobs:
         run: zip -r wpcontent.zip plugins mu-plugins themes
 
       - name: Copy Zips to Server
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -34,7 +34,7 @@ jobs:
           target: ${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}
 
       - name: Enable Maintenance Mode
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
