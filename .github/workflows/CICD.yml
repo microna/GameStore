@@ -53,7 +53,7 @@ jobs:
           script: |
             find "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}" -type f -name "*.php" ! -name "wp-config.php" -delete
             rm -r "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wp-admin/" "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wp-includes/"
-            unzip -o "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/live.geniuscourses.com' }}/wordpress.zip" -d "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/"
+            unzip -o "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wordpress.zip" -d "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/"
             mv "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wordpress"/* "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/"
             rm -r "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wordpress"
 
@@ -76,6 +76,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-              rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/.maintenance"
-              rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wpcontent.zip"
-              rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wordpress.zip"
+            rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/.maintenance"
+            rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wpcontent.zip"
+            rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wordpress.zip"
