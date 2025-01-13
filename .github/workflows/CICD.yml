@@ -81,3 +81,4 @@ jobs:
             rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/.maintenance"
             rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wpcontent.zip"
             rm -f "${{ github.event_name == 'push' && 'public_html/dev_folder' || 'public_html/prod_folder' }}/wordpress.zip"
+
